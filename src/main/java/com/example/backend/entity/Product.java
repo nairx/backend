@@ -10,13 +10,13 @@ public class Product {
     private Long id;
     private String name;
     private String description;
-    private int price;
+    private Double price;
     private String imageUrl;
 
     public Product(){
     }
 
-    public Product(String name, String description, int price,String imageUrl){
+    public Product(String name, String description, Double price,String imageUrl){
         this.name = name;
         this.description = description;
         this.price = price;
@@ -47,11 +47,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
