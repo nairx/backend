@@ -10,8 +10,8 @@ import com.example.backend.entity.User;
 import com.example.backend.service.UserService;
 
 @RestController
-@RequestMapping("/api/users")
-@CrossOrigin
+@RequestMapping("/api/admin/users")
+// @CrossOrigin
 public class UserController {
     private UserService userService;
 

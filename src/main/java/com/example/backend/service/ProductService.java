@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-
 import com.example.backend.entity.Product;
 import com.example.backend.repository.ProductRepository;
 
@@ -17,8 +16,21 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getProducts() {
-        return productRepository.findAll();
+    // public List<Product> getProducts() {
+    // // return productRepository.findAll();
+    // return productRepository.getProducts(300);
+    // }
+
+    // public List<Product> getProducts(double price) {
+    // // return productRepository.findAll();
+    // return productRepository.getProducts(price);
+    // }
+
+    public List<Product> getProducts(double price, String name) {
+        // return productRepository.findAll();
+        // return productRepository.findByPriceLessThan(price);
+        // return productRepository.findByPriceLessThanAndNameContaining(price,name);
+        return productRepository.getProducts(price, name);
     }
 
     public Product createProduct(Product product) {
@@ -29,12 +41,12 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-    public boolean deleteProduct(Long id){
+    public boolean deleteProduct(Long id) {
         productRepository.deleteById(id);
         return true;
     }
 
-    public Product updateProduct(Product product){
+    public Product updateProduct(Product product) {
         return productRepository.save(product);
     }
 

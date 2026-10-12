@@ -6,13 +6,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin
+// @CrossOrigin
 public class ProductController {
 
     private final ProductService productService;
@@ -22,29 +19,16 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getProducts() {
-        return productService.getProducts();
+    public List<Product> getProducts(@RequestParam(defaultValue = "1000") double price,@RequestParam(defaultValue = "") String name) {
+        return productService.getProducts(price,name);
     }
 
-    @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
-    }
 
     @GetMapping("/{id}")
     public Optional<Product> geProduct(@PathVariable Long id) {
         return productService.getProduct(id);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public boolean deletePoduct(@PathVariable Long id) {
-        productService.deleteProduct(id);
-        return true;
-    }
-
-    @PutMapping("/update/{id}")
-    public Product udpateProduct(@RequestBody Product product) {
-        return productService.updateProduct(product);
-    }
+  
 
 }

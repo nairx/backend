@@ -6,9 +6,11 @@ import java.util.*;
 import jakarta.persistence.*;;
 
 @Entity
+@Table(name="orders")
 public class Order {
     @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="order_seq",initialValue = 10001, allocationSize = 1)
     private Long id;
 
     private LocalDateTime orderDate;

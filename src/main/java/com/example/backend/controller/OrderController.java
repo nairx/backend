@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin
+// @CrossOrigin
 public class OrderController {
 
     private final OrderService orderService;

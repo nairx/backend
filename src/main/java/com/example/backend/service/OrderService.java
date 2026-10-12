@@ -53,7 +53,7 @@ public class OrderService {
             orderItem.setPrice(product.getPrice());
             orderItem.setOrder(order);
 
-            totalAmount = product.getPrice() * itemRequest.getQuantity();
+            totalAmount += product.getPrice() * itemRequest.getQuantity();
 
             orderItems.add(orderItem);
 
