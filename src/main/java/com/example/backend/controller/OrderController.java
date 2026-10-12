@@ -23,6 +23,7 @@ public class OrderController {
 
     @GetMapping("/user/{userId}")
     public List<Order> getOrders(@PathVariable Long userId) {
+        System.out.println("UserId" + userId);
         return orderService.getOrdersByUserId(userId);
     }
 
